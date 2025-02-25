@@ -244,6 +244,8 @@ noremap <silent> <space> :exe "normal i".nr2char(getchar())<CR>
 vnoremap . :normal .<CR>
 vnoremap > >gv
 vnoremap < <gv
+vnoremap J '>+1<CR>gv=gv
+vnoremap K '>-2<CR>gv=gv
 
 vnoremap <leader>ge !gpg -aser
 vnoremap <leader>gs !gpg -a --clear-sign<CR>
@@ -270,12 +272,12 @@ inoremap <silent> <Up> <Esc><Up>
 inoremap <silent> <Down> <Esc><Down>
 
 " Shortcut split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-J> <C-w>w
-nnoremap <C-K> <C-w>W
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sJ <C-w>w
+nnoremap sK <C-w>W
 
 nnoremap <leader>o :setlocal spell!<CR>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -303,7 +305,7 @@ nnoremap ,p "0p
 nnoremap ,P "0P
 " Interaction (cut/copy/paste) from system clibpboard.
 vnoremap <S-Del> "+x
-vnoremap <C-Insert> "+y
+vnoremap <C-y> "+y
 noremap  <script> <S-Insert> "+gP
 noremap! <script> <S-Insert> <C-R><C-R>+
 
