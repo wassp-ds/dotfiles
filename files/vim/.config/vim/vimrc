@@ -169,7 +169,7 @@ endfunction
 
 autocmd VimEnter * if !has('gui_running') | set noicon background=dark | endif
 autocmd GUIEnter * set background=light icon guioptions-=T guioptions-=m guioptions-=e guioptions-=r guioptions-=L
-autocmd GUIEnter * silent! colorscheme vividchalk
+autocmd GUIEnter * silent! colorscheme quiet
 autocmd GUIEnter * let &g:guifont = substitute(&g:guifont, '^$', s:font(), '')
 autocmd FocusLost * let s:confirm = &confirm | setglobal noconfirm | silent! wall | let &confirm = s:confirm
 
@@ -278,6 +278,8 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sJ <C-w>w
 nnoremap sK <C-w>W
+nnoremap ss :Sex<CR>
+nnoremap sv :Vex<CR>
 
 nnoremap <leader>o :setlocal spell!<CR>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -559,7 +561,7 @@ if (&t_Co > 2 || has('gui_running')) && has('syntax')
   if has('vim_starting')
     set list
     if !exists('g:colors_name')
-      colorscheme vividchalk
+      colorscheme quiet
     endif
   endif
 
