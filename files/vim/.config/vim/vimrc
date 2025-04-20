@@ -278,8 +278,10 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sJ <C-w>w
 nnoremap sK <C-w>W
-nnoremap ss :Sex<CR>
-nnoremap sv :Vex<CR>
+nnoremap ss :split<CR>
+nnoremap sv :vsplit<CR>
+nnoremap sS :Sex<CR>
+nnoremap sV :Vex<CR>
 
 nnoremap <leader>o :setlocal spell!<CR>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
