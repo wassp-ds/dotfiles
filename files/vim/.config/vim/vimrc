@@ -578,37 +578,6 @@ let g:tw_hi_till_end = 0
 let g:tw_hi_exclude_filetype = [
   \ 'help', 'netrw', 'qrexecpolicy', 'qrexecpolicyservice', 'qrexecconfig'
   \ ]
-function! TextwidthHighlight()
-  if !exists('s:tw_leave')
-    let s:tw_leave = 0
-  endif
-  if s:tw_leave == 1
-    return
-  endif
-
-  if !exists('g:tw_hi_exclude_filetype')
-    let g:tw_hi_exclude_filetype = []
-  endif
-  if !exists('g:tw_hi_till_end')
-    let g:tw_hi_till_end = 0
-  endif
-  for ft in g:tw_hi_exclude_filetype
-    if &filetype ==# ft
-      return
-    endif
-  endfor
-  if exists('b:tw_match')
-    try | call matchdelete(b:tw_match) | catch | endtry
-    unlet b:tw_match
-  endif
-  if &textwidth == 0 | return | endif
-  if g:tw_hi_till_end == 1
-    let b:tw_match = matchadd('ColorColumn', '.\{' . (&textwidth+1) . '\}\zs.\+', 100)
-  else
-    let b:tw_match = matchadd('ColorColumn', '\%' . (&textwidth+1) . 'v', 100)
-  endif
-endfunction
-autocmd BufEnter,BufWritePre,OptionSet,ColorScheme * call TextwidthHighlight()
 " Fix for netrw when opening a directory, entering a file than exiting it.
 autocmd VimLeave * let s:tw_leave = 1
 
@@ -622,99 +591,10 @@ endif
 
 " Section: Plugin settings
 
-let g:is_posix = 1
-let g:sh_fold_enabled = has('folding')
-let g:sh_noisk = 1
-let g:bash_is_sh = 1
-let g:sql_type_default = 'pgsql'
-let g:omni_sql_no_default_maps = 1
-let g:yaml_recommended_style = 1
-
-let g:update_time_time_format = '%Y %b %d'
-let g:prosession_dir = $XDG_DATA_HOME . "/vim/session"
-" Only works if not arguments are provided to vim: e.g.: \vim
-let g:prosession_on_startup = 1
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-let g:ragtag_global_maps = 1
-
-" vim-markdown-toc deletes text if the file is folded, use manual updates
-let g:vmt_auto_update_on_save = 0
-let g:vmt_dont_insert_fence = 1
-let g:vmt_list_indent_text = "    "
-let g:vmt_list_flag_min_width = 4
-
-let b:commentary_startofline = 1
-
-let b:surround_{char2nr('e')} = "\r\n}"
-let g:surround_{char2nr('-')} = "<% \r %>"
-let g:surround_{char2nr('=')} = "<%= \r %>"
-let g:surround_{char2nr('8')} = "/* \r */"
-let g:surround_{char2nr('s')} = " \r"
-let g:surround_{char2nr('^')} = "/^\r$/"
-let g:surround_indent = 1
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-  \ }
-
 let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{
   \ 'path': '~/src/vimwiki/', 'syntax': 'default', 'ext': 'wiki'
   \ }]
-
-function! s:SetSyntax()
-  let g:markdown_folding = 1
-  let g:markdown_fenced_languages = []
-  let g:markdown_fenced_languages_wanted = [
-    \ 'python', 'py=python', 'ruby', 'html', 'javascript', 'css',
-    \ 'sh', 'bash=sh', 'systemd', 'vim', 'yaml',
-    \ 'sshconfig', 'sshdconfig',
-    \ 'qrexecpolicy', 'qrexecpolicyservice', 'qrexecconfig',
-    \ ]
-  for g:markdown_try in g:markdown_fenced_languages_wanted
-    let g:syn_hi_find = g:markdown_try
-    if g:markdown_try =~ '\S\+=\S\+'
-      let g:syn_hi_find = split(g:markdown_try, '=')[1]
-    endif
-    if !empty(globpath(&runtimepath, 'syntax/' . g:syn_hi_find . '.vim'))
-      call add(g:markdown_fenced_languages, g:markdown_try)
-    endif
-  endfor
-  unlet g:markdown_try g:syn_hi_find
-
-  let g:rst_syntax_code_list = {
-    \ 'cpp': ['cpp', 'c++'],
-    \ 'java': ['java'],
-    \ 'php': ['php'],
-    \ 'python': ['python'],
-    \ 'perl': ['perl'],
-    \ 'rust': ['rust'],
-    \ 'sh': ['sh'],
-    \ 'vim': ['vim'],
-    \ 'yaml': ['yaml'],
-    \ 'qrexecpolicy': ['qrexecpolicy'],
-    \ 'qrexecpolicyservice': ['qrexecpolicyservice'],
-    \ 'qrexecconfig': ['qrexecconfig'],
-    \ }
-endfunction
-" Necessary to apply syntax from plugins.
-autocmd FileType markdown,vimwiki,rst call s:SetSyntax()
-
-let g:limelight_conceal_ctermfg='Gray'
-function! s:goyo_enter()
-  if exists(':Limelight')
-    Limelight
-  endif
-endfunction
-function! s:goyo_leave()
-  if exists(':Limelight')
-    Limelight!
-  endif
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 
 " Section: Plugins
 
