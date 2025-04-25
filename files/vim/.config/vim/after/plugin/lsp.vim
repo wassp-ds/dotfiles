@@ -24,10 +24,6 @@ let g:lsp_diagnostics_signs_warning = {'text': 'W'}
 let g:lsp_diagnostics_signs_information = {'text': 'I'}
 let g:lsp_diagnostics_signs_hint= {'text': 'H'}
 
-" TODO: remove me
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand("~/lsp.log")
-
 
 
 if executable('pyls')
