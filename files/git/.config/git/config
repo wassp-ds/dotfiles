@@ -104,6 +104,10 @@
 	vtag = !git verify-tag -v "$(git describe)"
 	vhci = !git verify-commit -v "$(git rev-parse HEAD)"
 	vhtag = !git verify-tag -v "$(git tag --points-at=HEAD)"
+	lswt = !git worktree list
+	mkwt = !git worktree add $1 $2
+	rmwt = !git worktree remove $1
+	wp = !git worktree prune
 [blame]
 	coloring = repeatedLines
 [branch]
