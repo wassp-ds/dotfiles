@@ -1,6 +1,6 @@
 # i3wm Design Decisions
 
-**Target:** 34" Ultrawide Monitor, ADHD developers using terminals/browsers  
+**Target:** 34" Ultrawide Monitor, neurodivergent developers using terminals/browsers  
 **Version:** 1.0  
 **Part of:** [dotfiles](README.md) configuration system
 
