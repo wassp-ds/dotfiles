@@ -301,8 +301,7 @@ nmap cd <C-w>,
 nnoremap <leader>sf :Files<CR>
 nnoremap <leader>sg :Rg<CR>
 nnoremap <leader>sb :Buffers<CR>
-nnoremap <leader>st :Tags<CR>
-nnoremap <leader>sbt :BTags<CR>
+nnoremap <leader>st :BTags<CR>
 nnoremap <leader>sc :Changes<CR>
 
 " Paste last thing yanked
