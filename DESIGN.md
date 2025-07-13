@@ -1,6 +1,6 @@
-# ADHD-Friendly i3wm Design Decisions
+# i3wm Design Decisions
 
-**Target:** 34" Ultrawide Monitor, ADHD developers using terminals/browsers  
+**Target:** 34" Ultrawide Monitor, neurodivergent developers using terminals/browsers  
 **Version:** 1.0  
 **Part of:** [dotfiles](README.md) configuration system
 
@@ -9,7 +9,7 @@
 ### Focus Management
 **Single point of attention**: Only the active window should draw visual focus. Inactive windows fade into the background to eliminate peripheral distractions.
 
-**Predictable behavior**: No animations, transitions, or changing elements that can capture ADHD attention inappropriately.
+**Predictable behavior**: No animations, transitions, or changing elements that can capture attention inappropriately.
 
 ### Cognitive Load Reduction
 **Minimal color palette**: Maximum 4 colors total to prevent decision fatigue and visual overwhelm.
@@ -85,7 +85,7 @@
 ## Visual Design Decisions
 
 ### Gap Configuration
-**10px inner gaps, 6px outer gaps**: Provides visual separation between windows without wasting screen space. Creates distinct "chunks" that ADHD brains can process separately.
+**10px inner gaps, 6px outer gaps**: Provides visual separation between windows without wasting screen space. Creates distinct "chunks" that brains can process separately.
 
 **Smart gaps enabled**: Hides gaps when only one window is open, maximizing screen use for deep focus sessions.
 
@@ -106,16 +106,11 @@
 - **Blue**: #569cd6 (information only)
 - **Yellow**: #facc15 (warnings only, sparingly)
 
-**Rationale**: Pure black background eliminates all visual noise. High contrast white text ensures maximum readability. Extremely limited color palette (only 4 colors total) prevents ADHD overstimulation and cognitive overload.
+**Rationale**: Pure black background eliminates all visual noise. High contrast white text ensures maximum readability. Extremely limited color palette (only 4 colors total) prevents overstimulation and cognitive overload.
 
 ### Border Colors
 **Primary**: #4ec9b0 (cyan) - Calming, professional, high contrast against black terminals. Not overstimulating.
 
-**Qubes VM Coding** (for security awareness):
-- **Work VM**: #2563eb (blue)
-- **Personal VM**: #16a34a (green)  
-- **Disposable VM**: #ea580c (orange)
-- **System VM**: #6b7280 (gray)
 
 ### Background
 **Desktop**: #0a0a0a (dark gray) - Creates subtle window definition while maintaining dark aesthetic.
@@ -128,7 +123,7 @@
 **Size**: 14-16px for 34" viewing distance. Large enough to prevent eye strain.
 
 ### Terminal Prompt Design
-**Minimal approach**: Path and git branch only. Eliminates visual clutter and information overload that can distract ADHD users.
+**Minimal approach**: Path and git branch only. Eliminates visual clutter and information overload that can distract users.
 
 ## Rationale Summary
 
