@@ -198,7 +198,7 @@ setglobal virtualedit=block
 setglobal shiftround
 setglobal smarttab
 if has('vim_starting')
-  let mapleader="\\"
+  let mapleader=","
   set autoindent
   set smartindent
   set smarttab
