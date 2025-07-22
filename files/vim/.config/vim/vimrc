@@ -244,6 +244,9 @@ noremap <silent> <space> :exe "normal i".nr2char(getchar())<CR>
 vnoremap . :normal .<CR>
 vnoremap > >gv
 vnoremap < <gv
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+
 
 vnoremap <leader>ge !gpg -aser
 vnoremap <leader>gs !gpg -a --clear-sign<CR>
