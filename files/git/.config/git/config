@@ -107,7 +107,7 @@
         wls = worktree list
         wa = worktree add
         wp = worktree prune
-        wrm = "!f() { git worktree remove "$1" && git worktree prune; }; f"
+        wrm = "!f() { git worktree remove "$1" && git branch -d "$1" && git worktree prune; }; f"
 [blame]
 	coloring = repeatedLines
 [branch]
