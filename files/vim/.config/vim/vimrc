@@ -667,8 +667,9 @@ autocmd FileType markdown,vimwiki,rst call s:SetSyntax()
 
 let g:limelight_conceal_ctermfg='Gray'
 function! s:goyo_enter()
+  set nu
   if exists(':Limelight')
-    Limelight
+    Limelight 0.7
   endif
 endfunction
 function! s:goyo_leave()
