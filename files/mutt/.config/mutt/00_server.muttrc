@@ -6,22 +6,22 @@
 set ssl_force_tls     = yes
 
 ## IMAP
-set folder            = "imaps://imap.$my_server"
-set imap_user         = "$my_user"
+set folder            = "$my_imap_url"
+set imap_user         = "$my_user@$my_server"
 set imap_pass         = "$my_pass"
 set imap_check_subscribed
 set mail_check        = 120
 
 ## POP3
-set pop_host          = "pops://pop.$my_server"
-set pop_user          = "$my_user"
+set pop_host          = "$my_pop_url"
+set pop_user          = "$my_user@$my_server"
 set pop_pass          = "$my_pass"
 set pop_checkinterval = 120
 set pop_delete        = ask-no
 set pop_last          = yes
 
 ## SMTP
-set smtp_url          = "smtps://$my_user@smtp.$my_server"
+set smtp_url          = "$my_smtp_url"
 set smtp_pass         = "$my_pass"
 
 ## vim: ft=muttrc
