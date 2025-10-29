@@ -169,7 +169,7 @@ endfunction
 
 autocmd VimEnter * if !has('gui_running') | set noicon background=dark | endif
 autocmd GUIEnter * set background=light icon guioptions-=T guioptions-=m guioptions-=e guioptions-=r guioptions-=L
-autocmd GUIEnter * silent! colorscheme quiet
+autocmd GUIEnter * silent! colorscheme vividchalk
 autocmd GUIEnter * let &g:guifont = substitute(&g:guifont, '^$', s:font(), '')
 autocmd FocusLost * let s:confirm = &confirm | setglobal noconfirm | silent! wall | let &confirm = s:confirm
 
@@ -558,7 +558,7 @@ if (&t_Co > 2 || has('gui_running')) && has('syntax')
       setglobal termguicolors
     endif
     if !exists('g:colors_name')
-      colorscheme quiet
+      colorscheme vividchalk
     endif
   endif
 
